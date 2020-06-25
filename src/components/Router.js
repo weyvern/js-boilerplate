@@ -8,10 +8,10 @@ const routes = [
   { path: '/about', component: About }
 ];
 // Remove hash from location
-const parseLocation = (hash) => hash.slice(1).toLowerCase() || '/';
+const parseLocation = hash => hash.slice(1).toLowerCase() || '/';
 // Get component based on location
-const findComponentByPath = (path) =>
-  routes.find((r) => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || false;
+const findComponentByPath = path =>
+  routes.find(r => r.path.match(new RegExp(`^\\${path}$`, 'gm'))) || false;
 // Define target element to render in
 const app = document.getElementById('app');
 const Router = () => {

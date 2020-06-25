@@ -1,21 +1,7 @@
 // Basic component structure
 const Navbar = {
-  // Collapse navbar on mobile after click on link
-  collapse: () => {
-    const links = document.querySelectorAll('.nav-link');
-    links.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        link.parentNode.classList.remove('active');
-        if (
-          e.target.parentNode.parentNode.parentNode.classList.contains('show')
-        ) {
-          e.target.parentNode.parentNode.parentNode.classList.toggle('show');
-        }
-      });
-    });
-  },
   // Render method
-  render: () => {
+  render: path => {
     const template = `
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
@@ -26,10 +12,12 @@ const Navbar = {
     
                 <div class="collapse navbar-collapse" id="navbarsExample04">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <li class="nav-item ${path === '#/' ? 'active' : ''}">
                             <a class="nav-link" href="#/">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ${
+                          path === '#/about' ? 'active' : ''
+                        }">
                             <a class="nav-link" href="#/about">About</a>
                         </li>
                     </ul>
